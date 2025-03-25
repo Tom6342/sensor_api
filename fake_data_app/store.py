@@ -1,5 +1,6 @@
 import numpy as np
 from fake_data_app.sensor import VisitSensor
+from datetime import date
 
 class StoreSensor:
 
@@ -36,3 +37,13 @@ class StoreSensor:
             )
 
             self.sensors.append(sensor)
+
+    def get_sensor_traffic(self, sensor_id: int, business_date: date) -> int:
+        """Return the traffic for one sensor at a date"""
+        return self.sensors[sensor_id].get_visit_count(business_date)
+
+    def get_all_traffic(self, business_date: date) -> int:
+        visit = 0
+        for i in range(8):
+            visit += self.sensors[i].get_visit_count(business_date)
+        return visit
