@@ -5,9 +5,9 @@ from fake_data_app.store import StoreSensor
 
 
 class TestStore(unittest.TestCase):
-    def test_get_all_traffic(self):
+    def test_get_store_traffic(self):
         lille_store = StoreSensor("Lille", 1200, 300)
-        visits = lille_store.get_all_traffic(date(2023, 9, 13))
+        visits = lille_store.get_store_traffic(date(2023, 9, 13))
         self.assertEqual(visits, 758)
 
     def test_get_sensor_traffic(self):
